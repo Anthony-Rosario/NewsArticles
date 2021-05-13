@@ -1,5 +1,6 @@
 import React from 'react';
+import SearchArticles from './articles/SearchArticles'
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return <SearchArticles />;
 }
