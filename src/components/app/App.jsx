@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchArticles from './articles/SearchArticles'
+import SearchNews from '../../containers/SearchNews'
 
 export default function App() {
-  return <SearchArticles />;
+  return <SearchNews />;
 }

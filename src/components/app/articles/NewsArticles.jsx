@@ -1,17 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function NewsArticles(props) {
+function NewsArticles({ source, author, title, description, url, content }) {
   return (
-    <div>
-      
-    </div>
+    <article>
+      <h2>{title}</h2>
+      <p>By: {author}</p>
+      <p>{description} - {content}</p>
+      <h4>{source}</h4>
+      <h5>{url}</h5>
+    </article>
   )
 }
 
 NewsArticles.propTypes = {
-
+  source: PropTypes.string,
+  author: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  url: PropTypes.string,
+  content: PropTypes.string,
 }
 
-export default NewsArticles
-
+export default NewsArticles;
