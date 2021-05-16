@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 function NewsArticles({ source, author, title, description, url, content }) {
   return (
-    <article>
+    <div>
       <h2>{title}</h2>
       <p>By: {author}</p>
       <p>{description} - {content}</p>
       <h4>{source}</h4>
       <h5>{url}</h5>
-    </article>
+    </div>
   )
 }
 

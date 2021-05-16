@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 function SearchArticles({ queryNewsArticles, onArticleNameChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
-      <label htmlFor="article-name">Search Articles</label>
+      <label htmlFor="query-search">Search Articles</label>
         <input 
-          id="article-name"
+          id="query-search"
           type="text"
           value={queryNewsArticles}
           onChange={onArticleNameChange}
         />
-        <button aria-label='news-search'></button>
+        <button aria-label='news-search'>Search</button>
     </form>
   )
 }
