@@ -7,7 +7,7 @@ export default class SearchNews extends Component {
   state = {
     loading: true,
     articles: [],
-    searchNewsArticles: '',
+    queryNewsArticles: '',
   }
 
   async componentDidMount() {
@@ -19,13 +19,14 @@ export default class SearchNews extends Component {
   }
 
   handleQueryChange = ({ target }) => {
-    this.setState({ searchNewsArticles: target.value })
+    this.setState({ queryNewsArticles: target.value })
   }
 
   handleSubmit = async(e) => {
     e.preventDefault();
     this.setState({ loading: true })
-    const articles = await getSearchedArticle(this.state.searchNewsArticles)
+    const articles = await getSearchedArticle(this.state.queryNewsArticles)
+    console.log(getArticles())
     this.setState({ 
       loading: false,
       articles
@@ -35,12 +36,12 @@ export default class SearchNews extends Component {
 
 
   render() {
-    const { loading, articles, searchNewsArticles } = this.state;
+    const { loading, articles, queryNewsArticles } = this.state;
     return loading ? <h1>Loading...</h1> :
 
     <>
       <SearchArticles 
-        queryNewsArticles={searchNewsArticles}
+        queryNewsArticles={queryNewsArticles}
         onArticleNameChange={this.handleQueryChange}
         onSubmit={this.handleSubmit}
       />

@@ -12,11 +12,11 @@ describe('NewsSearch Container', () => {
     render(<SearchNews />);
     await screen.findByText('Loading...');
 
-    const ulEl = await screen.findByRole('list', { name: 'News Article List' });
+    const ulEl = await screen.findByRole('list', { name: 'news-article-list' });
     expect(ulEl).not.toBeEmptyDOMElement();
 
     const inputEl = await screen.findByLabelText('Search Articles');
-    userEvent.type(inputEl, 'Biden');
+    userEvent.type(inputEl, 'Puppies');
 
     const submitButton = await screen.findByRole('button', {
       name: 'news-search',
@@ -24,8 +24,8 @@ describe('NewsSearch Container', () => {
     userEvent.click(submitButton);
 
     return waitFor(() => {
-      const articles = screen.getAllByText('CNN', { exact: false });
-      expect(articles).toHaveLength(33);
+      const articles = screen.getAllByText('Pet', { exact: false });
+      expect(articles).toHaveLength(12);
     });
   });
 });
