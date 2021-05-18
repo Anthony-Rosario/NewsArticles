@@ -1,5 +1,6 @@
 import React from 'react';
+import SearchNews from '../../containers/SearchNews'
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return <SearchNews />;
 }
