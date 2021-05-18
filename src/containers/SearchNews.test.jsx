@@ -4,7 +4,7 @@ import SearchNews from './SearchNews';
 import userEvent from '@testing-library/user-event';
 
 const query = 'lies'
-jest.mock('../services/NewsAPI', () => ({
+jest.mock('../services/newsApi', () => ({
   getArticles: () => [{
     author: 'CNN',
     title: 'Have Some Lies',
