@@ -1,6 +1,6 @@
 
 const mungedResponse = (articles) => {
-  return articles.map(({ source, author, title, description, url, content }) => ({
+  return articles?.map(({ source, author, title, description, url, content }) => ({
     source: source.name,
     author,
     title, 
