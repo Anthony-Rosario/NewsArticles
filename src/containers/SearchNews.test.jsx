@@ -4,10 +4,26 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import SearchNews from './SearchNews';
 import userEvent from '@testing-library/user-event';
+import fetch from 'node-fetch';
 
+jest.mock('node-fetch');
 
 describe('NewsSearch Container', () => {
   it('displays a list of articles dependent on search params', async () => {
+    fetch.mockResolvedValue({
+      json: () => [
+        {
+          source: 'CNN',
+          image: 'CNN',
+          author: 'CNN',
+          title: 'CNN',
+          description: 'CNN',
+          url: 'CNN',
+          publishedAt: 'CNN',
+          content: 'CNN',
+        },
+      ],
+    });
     
     render(<SearchNews />);
     await screen.findByText('Loading...');
