@@ -8,7 +8,7 @@
       <ul aria-label='news-article-list'>
         {articles && 
         <>
-        {articles.map(({ source, author, title, description, url, content }) => (
+        {articles?.map(({ source, author, title, description, url, content }) => (
           <li key={`${source}-${title}`}>
             <NewsArticles 
             source={source}

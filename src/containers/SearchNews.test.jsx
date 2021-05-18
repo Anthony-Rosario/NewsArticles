@@ -5,24 +5,28 @@ import { render, screen, waitFor } from '@testing-library/react';
 import SearchNews from './SearchNews';
 import userEvent from '@testing-library/user-event';
 import fetch from 'node-fetch';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
 
-jest.mock('node-fetch');
+const server = setupServer(
+  rest.get(`https://newsapi.org/v2/everything?q=news&pageSize=5&apiKey=${process.env.NEWS_API_KEY}`, (req, res, ctx) => {
+    return res (
+      ctx.json([{
+        title: '',
+        author: '',
+        description: '',
+        content: '',
+        source: '',
+        url: ''
+      }])
+    )
+  })
+);
+
+
 
 describe('NewsSearch Container', () => {
   it('displays a list of articles dependent on search params', async () => {
-    fetch.mockResolvedValue({
-      json: () => [
-        {
-          source: 'CNN',
-          author: 'Some Liar',
-          title: 'Lies',
-          description: 'Random CNN crap',
-          url: 'https://www.cnn.com/',
-          content: 'Media again lies about stuff'
-        },
-      ],
-    });
-    
     render(<SearchNews />);
     await screen.findByText('Loading...');
 
