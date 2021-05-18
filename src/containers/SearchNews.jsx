@@ -45,7 +45,9 @@ export default class SearchNews extends Component {
         onArticleNameChange={this.handleQueryChange}
         onSubmit={this.handleSubmit}
       />
-      <NewsArticleList articles={articles} />
+      {articles && 
+        <NewsArticleList articles={articles} />
+      }
     </>;
   }
 }

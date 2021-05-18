@@ -14,13 +14,11 @@ describe('NewsSearch Container', () => {
       json: () => [
         {
           source: 'CNN',
-          image: 'CNN',
-          author: 'CNN',
-          title: 'CNN',
-          description: 'CNN',
-          url: 'CNN',
-          publishedAt: 'CNN',
-          content: 'CNN',
+          author: 'Some Liar',
+          title: 'Lies',
+          description: 'Random CNN crap',
+          url: 'https://www.cnn.com/',
+          content: 'Media again lies about stuff'
         },
       ],
     });
