@@ -8,10 +8,9 @@
       <ul aria-label='news-article-list'>
         {articles && 
         <>
-        {articles?.map(({ source, author, title, description, url, content }) => (
-          <li key={`${source}-${title}`}>
-            <NewsArticles 
-            source={source}
+        {articles?.map(({ author, title, description, url, content }) => (
+          <li key={`${author}-${title}`}>
+            <NewsArticles
             author={author}
             title={title}
             description={description}
@@ -29,7 +28,6 @@
   NewsArticleList.propTypes = {
     articles: PropTypes.arrayOf(
       PropTypes.shape({
-        source: PropTypes.string,
         author: PropTypes.string,
         title: PropTypes.string,
         description: PropTypes.string,

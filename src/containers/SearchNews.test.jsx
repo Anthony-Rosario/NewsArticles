@@ -4,25 +4,6 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import SearchNews from './SearchNews';
 import userEvent from '@testing-library/user-event';
-import fetch from 'node-fetch';
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-
-const server = setupServer(
-  rest.get(`https://newsapi.org/v2/everything?q=news&pageSize=5&apiKey=${process.env.NEWS_API_KEY}`, (req, res, ctx) => {
-    return res (
-      ctx.json([{
-        title: '',
-        author: '',
-        description: '',
-        content: '',
-        source: '',
-        url: ''
-      }])
-    )
-  })
-);
-
 
 
 describe('NewsSearch Container', () => {
